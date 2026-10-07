@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from config import Config
 from extensions import db
@@ -57,4 +58,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=os.environ.get('FLASK_DEBUG', '0') == '1')
