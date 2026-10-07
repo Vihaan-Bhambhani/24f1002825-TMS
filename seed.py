@@ -1,3 +1,4 @@
+import os
 from werkzeug.security import generate_password_hash
 from extensions import db
 from models import User
@@ -10,14 +11,14 @@ def seed_admin():
     if existing_admin is None:
         admin = User(
             name='Admin',
-            email='admin@trekking.com',
-            password_hash=generate_password_hash('admin123'),
+            email=os.environ.get('ADMIN_EMAIL', 'admin@example.com'),
+            password_hash=generate_password_hash(os.environ.get('ADMIN_PASSWORD') or 'local-development-only-change-me'),
             role='admin',
             is_active=True,
             is_blacklisted=False
         )
         db.session.add(admin)
         db.session.commit()
-        print('[OK] Admin user created (admin@trekking.com / admin123)')
+        print('[OK] Admin user created')
     else:
         print('[OK] Admin user already exists, skipping seed')
