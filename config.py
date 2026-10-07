@@ -5,7 +5,7 @@ class Config:
     """Base configuration for the Flask application."""
 
     # Secret key for session management and CSRF protection
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'trekking-app-secret-key-change-in-production')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'local-development-only-change-me'
 
     # SQLite database path — stored inside the 'instance' folder
     # Flask automatically creates the 'instance' folder if it doesn't exist
