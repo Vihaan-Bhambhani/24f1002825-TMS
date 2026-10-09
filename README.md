@@ -41,6 +41,12 @@ Admin
    Booking / Cancellation
 ```
 
+## Entity-Relationship Diagram
+
+The diagram below reflects the current SQLAlchemy model definitions. The editable DBML source is available at [`docs/er-diagram.dbml`](docs/er-diagram.dbml).
+
+![Trekking Management System (V1) Entity-Relationship Diagram](docs/images/er-diagram.svg)
+
 ## Database design
 
 The application uses four core entities:
